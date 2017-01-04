@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Shader Test</title>
+    <script src="js/aframe.min.js"></script>
+    <script src="js/aframe-html-shader.min.js"></script>
+    <style>
+    .match {
+        color: #FFF;
+        background-color: #000;
+    }
+    .target {
+        position: absolute;
+        font-size: 100%;
+        background-color: #FFF;
+        display: hidden;
+        /*z-index: 1;*/
+    }
+    .contribution{
+        width: 1200px;
+        height: 1200px;
+    }
+    .recommend {
+        width: 500px;
+        height: 300px;
+    }
+    .base-info {
+        width: 200px;
+        height: 600px;
+    }
+    table.target > tr {
+        width: 200px;
+        height: 200px;
+    }
+    .equipment {
+        width: 500px;
+        height: 1000px;
+    }
+    .contribution > img {
+        width: 100%;
+    }
+    .contribution>img.icon {
+        float: left;
+        display: block;
+        width: 10%;
+    }
+    .contribution>div {
+        margin-left: 15%;
+        width: 52%;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="atom" class="target contribution">
+        <img src="img/82505120057fa5bd64ca15_contribution.jpg" alt="">
+    </div>
+    <div id="food" class="target contribution">
+        <img src="img/1014680726585d2e1f38efc_contribution.jpg" alt="">
+    </div>
+
+    <div id="recommend" class="target recommend">
+        <img src="img/user.jpg" class="icon">
+        <div class="cf"><h3>このカフェを推薦した人</h3><p>Shin✩</p></div>
+        <p class="detail">高田馬場駅前にある本格コーヒースタンド。とてもオシャレな外観、内観。上質なコーヒーをペーパードリップで淹れてくれます。</p>
+    </div>
+    <table id="base-info1" class="base-info target">
+        <tr>
+            <th>店名</th>
+            <td>GRAIN BREAD AND BREW</td>
+        </tr>
+        <tr>
+            <th>フリガナ</th>
+            <td>グレインブレッドアンドブリュー</td>
+        </tr>
+        <tr>
+            <th>ジャンル</th>
+            <td>空間が魅力のカフェ</td>
+        </tr>
+    <table id="base-info2" class="base-info target">
+        <tr>
+            <th>電話番号</th>
+            <td><em>080-4355-2016</em></td>
+        </tr>
+        <tr>
+            <th>住所</th>
+            <td><a href="https://cafesnap.me/c/4257/map">東京都渋谷区東2-20-18 都営渋谷東二丁目アパート1F</a></td>
+        </tr>
+        <tr>
+            <th>アクセス</th>
+            <td>渋谷駅・恵比寿駅から徒歩15分</td>
+        </tr>
+    <table id="base-info3" class="base-info target">
+        <tr>
+            <th>営業時間</th>
+            <td>11:00～21:00、土曜 8:00～21:00</td>
+        </tr>
+        <tr>
+            <th>定休日</th>
+            <td>日曜</td>
+        </tr>
+        <tr>
+            <th>狙い目の時間帯</th>
+            <td>15:00以降</td>
+        </tr>
+    </table>
+    <table id="equipment-info" class="base-info target">
+        <tr>
+            <th>カフェの特徴</th>
+            <td>
+                雰囲気が落ち着いている、デートでもおすすめの雰囲気、メニューによってラテアートがある、自慢のスイーツがある、こだわりパンがある、コーヒー専門店／コーヒースタンドを含む、お一人様で入りやすい
+            </td>
+        </tr>
+        <tr>
+            <th>禁煙／喫煙</th>
+            <td>全面禁煙</td>
+        </tr>
+        <tr>
+            <th>座席数</th>
+            <td>23席</td>
+        </tr>
+    </table>
+    <table id="relative-info1" class="base-info target">
+        <tr>
+            <th>平均予算<br>（お茶タイム）</th>
+            <td>〜1,000円</td>
+        </tr>
+        <tr>
+            <th>平均予算（昼）</th>
+            <td>〜2,000円</td>
+        </tr>
+        <tr>
+            <th>おすすめメニュー</th>
+            <td>チャバッタ 100gベーコン モンスタースタイル</td>
+        </tr>
+    <table id="relative-info2" class="base-info target">
+        <tr>
+            <th>携帯電話</th>
+            <td>docomo,au,softbank</td>
+        </tr>
+        <tr>
+            <th>ホームページ</th>
+            <td><a href="http://www.grainbb.com/" target="_blank" rel="nofollow">http://www.grainbb.com/</a></td>
+        </tr>
+        <tr>
+            <th>備考</th>
+            <td>ドリンクテイクアウト可、サンドイッチは一部テイクアウト可</td>
+        </tr>
+    </table>
+
+    <div id="equipment" class="equipment target"><!-- 設備 -->
+        <ul>
+            <li  class="match" >朝食あり</li>
+            <li  class="match" >ランチあり</li>
+            <li >ディナー</li>
+            <li >Wi-Fiあり</li>
+            <li >電源あり</li>
+            <li  class="match" >予約可</li>
+            <li  class="match" >禁煙席あり</li>
+            <li >30席以上</li>
+            <li >ペット可</li>
+            <li >BGMなし</li>
+            <li >駐車場あり</li>
+            <li >深夜営業</li>
+            <li >個室あり</li>
+            <li >カード支払</li>
+            <li >喫煙席あり</li>
+        </ul>
+    </div>
+
+    <a-scene fog="type: linear; color: #FFF; far: 40; near: 0">
+        <!--推薦者-->
+        <a-plane position="-5 2 14" rotation="0 45 0" width="15" height="5" material="shader:html;target: #recommend;"></a-plane>
+
+        <!--投稿写真-->
+        <a-entity id="atomEntity" geometry="primitive:box;width:4;height:4;depth:0.1;" rotation="0 0 0" position="0 2 8" material="shader:html;target:#atom;transparent:true;ratio:height;fps:0.3;side:double;"></a-entity>
+        <a-entity id="foodEntity" geometry="primitive:box;width:4;height:4;depth:0.1;" rotation="0 0 0" position="4.5 2 8" material="shader:html;target:#food;transparent:true;ratio:height;fps:0.3;side:double;"></a-entity>
+        
+        <!--詳細情報-->
+        <a-plane position="8 -5 14" rotation="0 -45 0" width="10" height="20" material="shader:html;target: #equipment;"></a-plane>
+
+        <!--基本情報-->
+        <a-plane position="8 1 22" rotation="0 180 0" width="4" height="12" material="shader:html;target: #base-info1;"></a-plane>
+        <a-plane position="4 1 22" rotation="0 180 0" width="4" height="12" material="shader:html;target: #base-info2;"></a-plane>
+        <a-plane position="0 1 22" rotation="0 180 0" width="4" height="12" material="shader:html;target: #base-info3;"></a-plane>
+        <a-plane position="-4 1 22" rotation="0 180 0" width="4" height="12" material="shader:html;target: #equipment-info;"></a-plane>
+        <a-plane position="-8 1 22" rotation="0 180 0" width="4" height="12" material="shader:html;target: #relative-info1;"></a-plane>
+        <a-plane position="-12 1 22" rotation="0 180 0" width="4" height="12" material="shader:html;target: #relative-info2;"></a-plane>
+        
+        <!--背景-->
+        <a-sky color="#FFFFFF" rotation="0 0 0"></a-sky>
+        <a-entity camera wasd-controls look-controls position="0 2 15"></a-entity>
+    </a-scene>
+
+    <script>
+    // var atoms = ['<img src="img/82505120057fa5bd64ca15_contribution.jpg">', '<img src="img/884384879585dcfb19d512_contribution.jpg">']
+    // var atomEntity = document.getElementById('atomEntity')
+    // var atom = document.getElementById('atom')
+
+    // var foods = ["<img src='img/1014680726585d2e1f38efc_contribution.jpg'>", "<img src='img/488813636585b85c3280d2_contribution.jpg'>"]
+    // var foodEntity = document.getElementById('foodEntity')
+    // var food = document.getElementById('food')
+    // var fps = atomEntity.getAttribute('material').fps
+    // updateImage(0, 1000/fps)
+    // function updateImage (cnt, fps) {
+    //     atom.innerHTML = atoms[cnt++ % atoms.length]
+    //     food.innerHTML = foods[cnt++ % foods.length]
+    //     setTimeout(updateImage, fps, cnt, fps)
+    // }
+    </script>
+</body>
+</html>
